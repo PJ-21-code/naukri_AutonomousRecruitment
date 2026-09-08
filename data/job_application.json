@@ -1,0 +1,362 @@
+[
+    {
+        "record_id": "REC-001",
+        "category": "Software Engineer",
+        "status": "Applied",
+        "expected_salary_inr": 2155144,
+        "days_since_created": 8,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-002",
+        "category": "Data Analyst",
+        "status": "Applied",
+        "expected_salary_inr": 1643716,
+        "days_since_created": 2,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-003",
+        "category": "Software Engineer",
+        "status": "Applied",
+        "expected_salary_inr": 796493,
+        "days_since_created": 6,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-004",
+        "category": "Sales Associate",
+        "status": "Applied",
+        "expected_salary_inr": 938508,
+        "days_since_created": 6,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-005",
+        "category": "Sales Associate",
+        "status": "Offered",
+        "expected_salary_inr": 581148,
+        "days_since_created": 14,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-006",
+        "category": "Software Engineer",
+        "status": "Screening",
+        "expected_salary_inr": 2064104,
+        "days_since_created": 13,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-007",
+        "category": "Data Analyst",
+        "status": "Screening",
+        "expected_salary_inr": 1205889,
+        "days_since_created": 3,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-008",
+        "category": "Software Engineer",
+        "status": "Interview Scheduled",
+        "expected_salary_inr": 1321327,
+        "days_since_created": 19,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-009",
+        "category": "Software Engineer",
+        "status": "Offered",
+        "expected_salary_inr": 1724551,
+        "days_since_created": 3,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-010",
+        "category": "HR Executive",
+        "status": "Applied",
+        "expected_salary_inr": 928856,
+        "days_since_created": 9,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-011",
+        "category": "Sales Associate",
+        "status": "Interview Scheduled",
+        "expected_salary_inr": 955397,
+        "days_since_created": 6,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-012",
+        "category": "Software Engineer",
+        "status": "Screening",
+        "expected_salary_inr": 1206890,
+        "days_since_created": 2,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-013",
+        "category": "Software Engineer",
+        "status": "Offered",
+        "expected_salary_inr": 1182952,
+        "days_since_created": 14,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-014",
+        "category": "Product Manager",
+        "status": "Screening",
+        "expected_salary_inr": 1776325,
+        "days_since_created": 11,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-015",
+        "category": "Product Manager",
+        "status": "Applied",
+        "expected_salary_inr": 2277440,
+        "days_since_created": 20,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-016",
+        "category": "Data Analyst",
+        "status": "Screening",
+        "expected_salary_inr": 1469429,
+        "days_since_created": 12,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-017",
+        "category": "Sales Associate",
+        "status": "Screening",
+        "expected_salary_inr": 1067870,
+        "days_since_created": 10,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-018",
+        "category": "Software Engineer",
+        "status": "Screening",
+        "expected_salary_inr": 667319,
+        "days_since_created": 25,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-019",
+        "category": "Product Manager",
+        "status": "Applied",
+        "expected_salary_inr": 1442463,
+        "days_since_created": 29,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-020",
+        "category": "Product Manager",
+        "status": "Screening",
+        "expected_salary_inr": 2374554,
+        "days_since_created": 15,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-021",
+        "category": "HR Executive",
+        "status": "Screening",
+        "expected_salary_inr": 627746,
+        "days_since_created": 4,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-022",
+        "category": "Sales Associate",
+        "status": "Rejected",
+        "expected_salary_inr": 625504,
+        "days_since_created": 23,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-023",
+        "category": "Sales Associate",
+        "status": "Offered",
+        "expected_salary_inr": 729580,
+        "days_since_created": 7,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-024",
+        "category": "Data Analyst",
+        "status": "Rejected",
+        "expected_salary_inr": 1534977,
+        "days_since_created": 2,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-025",
+        "category": "Software Engineer",
+        "status": "Screening",
+        "expected_salary_inr": 1915849,
+        "days_since_created": 5,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-026",
+        "category": "HR Executive",
+        "status": "Rejected",
+        "expected_salary_inr": 416613,
+        "days_since_created": 12,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-027",
+        "category": "HR Executive",
+        "status": "Rejected",
+        "expected_salary_inr": 613626,
+        "days_since_created": 17,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-028",
+        "category": "Software Engineer",
+        "status": "Applied",
+        "expected_salary_inr": 2029650,
+        "days_since_created": 28,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-029",
+        "category": "Product Manager",
+        "status": "Interview Scheduled",
+        "expected_salary_inr": 1233941,
+        "days_since_created": 9,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-030",
+        "category": "HR Executive",
+        "status": "Applied",
+        "expected_salary_inr": 1107168,
+        "days_since_created": 28,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-031",
+        "category": "Sales Associate",
+        "status": "Screening",
+        "expected_salary_inr": 882342,
+        "days_since_created": 29,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-032",
+        "category": "Product Manager",
+        "status": "Rejected",
+        "expected_salary_inr": 2277103,
+        "days_since_created": 6,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-033",
+        "category": "Data Analyst",
+        "status": "Rejected",
+        "expected_salary_inr": 1612232,
+        "days_since_created": 29,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-034",
+        "category": "Product Manager",
+        "status": "Offered",
+        "expected_salary_inr": 1040845,
+        "days_since_created": 3,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-035",
+        "category": "Product Manager",
+        "status": "Screening",
+        "expected_salary_inr": 1121477,
+        "days_since_created": 7,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-036",
+        "category": "Software Engineer",
+        "status": "Applied",
+        "expected_salary_inr": 2134921,
+        "days_since_created": 15,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-037",
+        "category": "Sales Associate",
+        "status": "Screening",
+        "expected_salary_inr": 484628,
+        "days_since_created": 21,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-038",
+        "category": "Sales Associate",
+        "status": "Screening",
+        "expected_salary_inr": 627932,
+        "days_since_created": 16,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-039",
+        "category": "HR Executive",
+        "status": "Screening",
+        "expected_salary_inr": 915492,
+        "days_since_created": 24,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-040",
+        "category": "Data Analyst",
+        "status": "Interview Scheduled",
+        "expected_salary_inr": 1336747,
+        "days_since_created": 21,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-041",
+        "category": "HR Executive",
+        "status": "Rejected",
+        "expected_salary_inr": 823417,
+        "days_since_created": 3,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-042",
+        "category": "Software Engineer",
+        "status": "Interview Scheduled",
+        "expected_salary_inr": 644112,
+        "days_since_created": 18,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-043",
+        "category": "Sales Associate",
+        "status": "Screening",
+        "expected_salary_inr": 357540,
+        "days_since_created": 2,
+        "flagged_priority_review": false
+    },
+    {
+        "record_id": "REC-044",
+        "category": "Software Engineer",
+        "status": "Screening",
+        "expected_salary_inr": 741348,
+        "days_since_created": 28,
+        "flagged_priority_review": true
+    },
+    {
+        "record_id": "REC-045",
+        "category": "Product Manager",
+        "status": "Applied",
+        "expected_salary_inr": 2078263,
+        "days_since_created": 7,
+        "flagged_priority_review": false
+    }
+]

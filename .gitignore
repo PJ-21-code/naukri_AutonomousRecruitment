@@ -1,0 +1,19 @@
+# Python & IDE Cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.dist/
+.venv/
+.idea/
+.vscode/
+
+# Local Vector Database & SQLite Checkpoints
+data/chroma_db/
+checkpoints.sqlite
+
+# Generated Logs & Evaluation Outputs
+logs/
+
+# OS Specific Files
+.DS_Store
+Thumbs.db
