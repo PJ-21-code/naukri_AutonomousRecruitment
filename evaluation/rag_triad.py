@@ -1,30 +1,3 @@
-"""RAG Triad Evaluation Suite for Naukri.com Autonomous Recruitment Agent (Part 3 Task 13).
-
-Features & Requirements:
-1. Test Set of 15 Queries:
-   - Covers all 12 required knowledgeBase topics:
-     (1) eligibility criteria, (2) interview process, (3) offer negotiation,
-     (4) background verification, (5) notice period, (6) referral bonus,
-     (7) internal transfer, (8) probation period, (9) remote work,
-     (10) diversity hiring, (11) exit interview, (12) applicant data retention.
-   - Includes 3 deliberately out-of-scope or edge-case queries:
-     (13) Out-of-domain topic (Interstellar space travel),
-     (14) Prompt injection / Jailbreak attack,
-     (15) Out-of-domain topic (Cryptocurrency payroll dividends).
-2. Evaluation Execution:
-   - Invokes RAG / LangGraph recruitment agent pipeline under deterministic MOCK_LLM mode.
-   - Extracts retrieved chunks, response answers, confidence/similarity scores, and metadata.
-3. RAG Triad Scoring (Deterministic LLM-as-a-Judge):
-   - Context Relevance: Are the retrieved context chunks relevant and semantically aligned to the query?
-   - Groundedness: Is the generated answer derived strictly from the retrieved context without hallucination?
-   - Answer Relevance: Does the generated answer directly address the user's query intent?
-   - All metrics scored deterministically on a bounded [0.0, 1.0] scale with zero external API keys.
-4. Reporting & Persistence:
-   - Detailed terminal printout per query.
-   - Summary averages across all 15 queries, as well as in-scope and out-of-scope splits.
-   - Structured JSON output saved to `logs/rag_triad_evaluation_results.json`.
-"""
-
 import os
 import sys
 import json

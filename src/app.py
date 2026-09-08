@@ -1,20 +1,3 @@
-"""FastAPI Backend for Naukri.com Autonomous Recruitment Agent (Part 3: Tasks 11 and 12).
-
-Features:
-1. Endpoints:
-   - POST /ask: Processes user queries through the LangGraph recruitment agent with memory persistence.
-   - POST /add-document: Adds new policy documents to the knowledgeBase and dynamically re-indexes ChromaDB.
-   - GET /health: Health check and service readiness endpoint.
-2. Request/Response Validation:
-   - Strict Pydantic models for all incoming request bodies and outgoing JSON responses.
-3. Structured JSON-Lines (JSONL) Logging:
-   - Logs every request and response lifecycle to `logs/app_traces.jsonl`.
-   - Includes unique trace_id (UUID4), timestamp, endpoint, latency in milliseconds, and status code.
-   - CRITICAL GUARDRAIL: Strict input-side PII masking applied before persisting requests to disk logs.
-4. MOCK_LLM & Zero External Dependencies:
-   - Runs seamlessly offline with local embeddings and rule/tool execution without external API keys.
-"""
-
 import os
 import sys
 import json

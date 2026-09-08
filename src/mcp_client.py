@@ -1,9 +1,3 @@
-"""Model Context Protocol (MCP) Client for Naukri.com Autonomous Recruitment Agent (Task 14).
-
-Connects to the local FastMCP server HTTP endpoint (e.g., http://127.0.0.1:8000/mcp)
-and invokes the `check_job_application_status` tool across multiple candidate record IDs.
-"""
-
 import argparse
 import asyncio
 import json

@@ -1,15 +1,3 @@
-"""SQLite Checkpointing Demonstration and Test Suite for LangGraph (Task 15).
-
-Demonstrates and verifies state persistence, interruption, and resumption using `langgraph-checkpoint-sqlite`:
-1. Configures an SQLite Checkpointer (`SqliteSaver`) storing graph checkpoints on disk (`checkpoints.sqlite`).
-2. Executes a multi-stage recruitment pipeline keyed by a unique thread ID.
-3. Deliberately interrupts execution after Node 1 and Node 2 complete, before Node 3 and Node 4 run.
-4. Resumes execution on the exact same thread ID, proving that:
-   - Previously completed nodes were restored directly from the SQLite checkpoint.
-   - Completed nodes (Node 1 & Node 2) did NOT re-execute (execution count remains 1).
-   - Remaining nodes (Node 3 & Node 4) executed cleanly to complete the pipeline.
-"""
-
 import os
 import sys
 import sqlite3
@@ -29,9 +17,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from src.tools import check_job_application_status
 
 
-# ============================================================================
 # 1. State Definition & Node Execution Audit Tracker
-# ============================================================================
 
 class RecruitmentWorkflowState(TypedDict):
     candidate_id: str
@@ -66,10 +52,7 @@ class NodeExecutionTracker:
 
 GLOBAL_TRACKER = NodeExecutionTracker()
 
-
-# ============================================================================
 # 2. Recruitment Workflow Nodes
-# ============================================================================
 
 def node_intake(state: RecruitmentWorkflowState) -> Dict[str, Any]:
     """Node 1: Validates incoming candidate record ID and initializes audit history."""
@@ -130,10 +113,7 @@ def node_dispatch_notification(state: RecruitmentWorkflowState) -> Dict[str, Any
         "execution_history": history,
     }
 
-
-# ============================================================================
 # 3. LangGraph Workflow Construction with Checkpointer
-# ============================================================================
 
 def build_checkpointed_graph(checkpointer: SqliteSaver, interrupt_before: Optional[List[str]] = None):
     """Builds and compiles the 4-node LangGraph recruitment workflow with SQLite persistence."""
@@ -155,10 +135,7 @@ def build_checkpointed_graph(checkpointer: SqliteSaver, interrupt_before: Option
         interrupt_before=interrupt_before or ["node_escalation_review"]
     )
 
-
-# ============================================================================
 # 4. Pytest Automated Tests
-# ============================================================================
 
 def test_sqlite_checkpointing_interruption_and_resumption(tmp_path: Path):
     """Verifies that SQLite checkpointing persists state at interruptions and resumes without re-running earlier nodes."""
@@ -252,10 +229,7 @@ def test_sqlite_state_isolation_between_threads(tmp_path: Path):
     
     conn.close()
 
-
-# ============================================================================
 # 5. Standalone Execution Demonstration
-# ============================================================================
 
 def run_checkpointing_demo(db_path: Optional[str] = None):
     """Interactive CLI demonstration showing SQLite Checkpointing, interruption, and resumption."""

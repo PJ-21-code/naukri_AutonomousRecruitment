@@ -1,10 +1,3 @@
-"""Model Context Protocol (MCP) Server for Naukri.com Autonomous Recruitment Agent (Task 14).
-
-Exposes recruiter tools via FastMCP with HTTP transport mounted at `/mcp` by default.
-Allows external MCP clients to retrieve application records, salary expectations,
-and computed candidate escalation scores for recruiter queue prioritization.
-"""
-
 import os
 import sys
 from pathlib import Path

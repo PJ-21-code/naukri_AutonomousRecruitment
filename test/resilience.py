@@ -1,18 +1,3 @@
-"""Resilience, Timeout, and Retry Policy Test Suite and Demonstration (Task 16).
-
-Implements and demonstrates:
-1. Exponential-Backoff Retry Policy (LangGraph `RetryPolicy`):
-   - Configures `max_attempts`, `initial_interval`, `max_interval`, and `jitter`.
-   - Wraps a node simulating transient failures (fails first 2 calls, succeeds on attempt 3).
-   - Demonstrates clean recovery and state progression.
-2. Per-Node Timeout:
-   - Enforces a strict execution time limit on an individual graph node (e.g. slow external API).
-   - Demonstrates that a node exceeding the timeout raises a clean error without hanging or blocking.
-3. Global Graph Timeout:
-   - Enforces a cumulative execution time limit across the entire graph workflow.
-   - Demonstrates clean cancellation when total pipeline latency overruns the global budget.
-"""
-
 import os
 import sys
 import time
@@ -31,9 +16,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 
-# ============================================================================
 # 1. State Definition & Transient Failure Counter
-# ============================================================================
 
 class ResilienceWorkflowState(TypedDict):
     query: str
@@ -56,10 +39,7 @@ class ResilienceTracker:
 
 TRACKER = ResilienceTracker()
 
-
-# ============================================================================
 # 2. Timeout Execution Helper
-# ============================================================================
 
 def execute_with_timeout(
     func: Callable[..., Any],
@@ -96,9 +76,7 @@ def execute_with_timeout(
     return results[0] if results else None
 
 
-# ============================================================================
 # 3. Resilient Graph Nodes
-# ============================================================================
 
 def node_transient_failure_service(state: ResilienceWorkflowState) -> Dict[str, Any]:
     """Node simulating a transient external failure.
@@ -171,10 +149,7 @@ def node_delayed_step(state: ResilienceWorkflowState, delay: float = 0.35) -> Di
     trail.append(f"delayed_step_{delay}s_completed")
     return {"audit_trail": trail}
 
-
-# ============================================================================
 # 4. Global Timeout Runner Utility
-# ============================================================================
 
 def invoke_with_global_timeout(
     graph: Any,
@@ -198,9 +173,7 @@ def invoke_with_global_timeout(
         raise err
 
 
-# ============================================================================
 # 5. Graph Builders for Resilience Demonstrations
-# ============================================================================
 
 def build_retry_demo_graph(retry_policy: RetryPolicy):
     """Builds graph with LangGraph RetryPolicy on the transient node."""
@@ -244,10 +217,7 @@ def build_multi_step_pipeline_graph(delay_per_step: float = 0.35):
     builder.add_edge("step_3", END)
     return builder.compile()
 
-
-# ============================================================================
 # 6. Automated Pytest Test Suite
-# ============================================================================
 
 def test_exponential_backoff_retry_recovery():
     """Demonstrates and asserts that exponential-backoff retries recover from transient failures."""
@@ -347,10 +317,7 @@ def test_successful_resilient_pipeline_within_limits():
     assert result["background_check_result"] == "Background verification completed"
     assert "per_node_timeout_passed" in result["audit_trail"]
 
-
-# ============================================================================
 # 7. Standalone Demonstration Runner
-# ============================================================================
 
 def run_resilience_demo():
     """Runs all 3 resilience demonstrations with detailed terminal output."""
@@ -358,9 +325,7 @@ def run_resilience_demo():
     print("LANGGRAPH RESILIENCE, TIMEOUTS, AND RETRIES DEMONSTRATION (Task 16)")
     print("=" * 80)
     
-    # ------------------------------------------------------------------------
     # DEMO 1: Exponential-Backoff Retries
-    # ------------------------------------------------------------------------
     print("\n[DEMO 1] Exponential-Backoff Retry Policy (Simulating Transient Failure)")
     print("-> Node will fail attempt #1 and attempt #2, then succeed on attempt #3.")
     print("-> Retry Configuration: max_attempts=4, initial_interval=0.05s, backoff=2.0x, jitter=True")
@@ -396,9 +361,7 @@ def run_resilience_demo():
     print(f"  * Total Elapsed Time: {t_total:.4f}s")
     print("  * Status: SUCCESSFUL RECOVERY VIA EXPONENTIAL BACKOFF")
 
-    # ------------------------------------------------------------------------
     # DEMO 2: Per-Node Timeout
-    # ------------------------------------------------------------------------
     print("\n" + "=" * 80)
     print("[DEMO 2] Per-Node Timeout Limit")
     print("-> Slow node requires 1.0s, but per-node timeout is enforced at 0.20s.")
@@ -421,9 +384,7 @@ def run_resilience_demo():
         print(f"  * Aborted Promptly in: {t_elapsed:.4f}s (without hanging for full 1.0s)")
         print("  * Status: PER-NODE TIMEOUT ENFORCED CLEANLY")
 
-    # ------------------------------------------------------------------------
     # DEMO 3: Global Graph-Level Timeout
-    # ------------------------------------------------------------------------
     print("\n" + "=" * 80)
     print("[DEMO 3] Global Graph-Level Timeout Cancellation")
     print("-> 3-step pipeline taking ~1.05s total, with global budget enforced at 0.40s.")

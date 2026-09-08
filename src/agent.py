@@ -1,23 +1,3 @@
-"""Autonomous Recruitment Agent for Naukri.com Capstone (Part 2: Tasks 7, 8, 9, 10).
-
-Architecture & Features:
-1. Tool Integration:
-   - Application status lookup with escalation score via `src.tools.check_job_application_status`.
-   - Policy retrieval & calibrated threshold fallback via `src.rag_core.RAG_CORE`.
-2. LangGraph Architecture (>= 4 nodes, conditional routing):
-   - Node 1: Input Guardrail Node (PII masking on phone numbers/emails and prompt injection detection).
-   - Node 2: Intent Router Node (routes queries dynamically to RAG policy search or Tool lookup).
-   - Node 3a: Tool Execution Node (retrieves application status, salary, recency, escalation score).
-   - Node 3b: RAG Execution Node (retrieves relevant policy context with similarity thresholding).
-   - Node 4: Output Guardrail & Validation Node (groundedness checks, output PII sanitization, and Pydantic validation).
-3. Memory Persistence:
-   - Multi-turn conversation state persistence with LangGraph `MemorySaver` and session reset capability.
-4. Structured Output Schema:
-   - Pydantic `AgentResponseSchema` with `answer`, `source_type`, `confidence_score`, `groundedness_passed`, `pii_masked`, and `metadata`.
-5. Guardrails Demonstration:
-   - Demonstrations for input-side PII masking, prompt injection defense, output groundedness fallback, and multi-turn conversational context.
-"""
-
 import os
 import re
 import json
