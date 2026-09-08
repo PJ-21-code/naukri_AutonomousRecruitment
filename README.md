@@ -49,12 +49,15 @@ A robust, production-grade domain support agent built for Naukri.com's recruitme
 ## Installation Guide
 
 1. Clone & Set Up Virtual Environment
+
 Ensure you have Python 3.10+ installed on your local machine. Open your terminal in the project root and run:
 
 python -m venv .venv
+
 source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 
 2. Install Dependencies
+
 Install all required capstone packages offline via pip:
 
 pip install -r requirements.txt
@@ -62,12 +65,17 @@ pip install -r requirements.txt
 ## Trials & Execution Workflows
 
 Step 1: Initialize Data & Knowledge Base
+
 Generate your deterministic candidate dataset and build your ChromaDB vector store collections:
+
 python -m src.dataset
+
 python -m src.rag_core
 
 Step 2: Run the FastAPI Backend Server
+
 Launch the production-grade FastAPI server locally:
+
 uvicorn src.app:app --reload 
 
 Access interactive API docs at: http://127.0.0.1:8000/docs
@@ -80,16 +88,23 @@ Send test queries to POST /ask using a JSON payload:
 }
 
 Step 3: Test Model Context Protocol (MCP) Interoperability
+
 Verify tool exposure using the self-hosted MCP server and client script:
+
 python -m src.mcp_server
 
 python -m src.mcp_client
 
 Step 4: Execute Checkpointing and Resilience Trials
+
 Verify state persistence across interrupted sessions and error recovery handling:
+
 python -m test.checkpointing
+
 python -m test.resilience
 
-Step 5: Run the RAG Triad Evaluation Suite
+Step 5: Run the RAG Triad Evaluation Suite:
+
 Execute the evaluation harness to compute Context Relevance, Groundedness, and Answer Relevance metrics across the test dataset:
+
 python -m evaluation.rag_triad
