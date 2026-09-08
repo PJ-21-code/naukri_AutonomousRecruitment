@@ -82,7 +82,7 @@ Send test queries to POST /ask using a JSON payload:
 Step 3: Test Model Context Protocol (MCP) Interoperability
 Verify tool exposure using the self-hosted MCP server and client script:
 python -m src.mcp_server
-# In a separate terminal window:
+
 python -m src.mcp_client
 
 Step 4: Execute Checkpointing and Resilience Trials
