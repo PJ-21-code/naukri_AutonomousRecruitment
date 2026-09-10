@@ -108,3 +108,6 @@ Step 5: Run the RAG Triad Evaluation Suite:
 Execute the evaluation harness to compute Context Relevance, Groundedness, and Answer Relevance metrics across the test dataset:
 
 python -m evaluation.rag_triad
+
+## Frontend
+A frontend is build in HTML inside frontend/index.html which will be directly connected to FastAPI locally hosted at port: 8000. http://127.0.0.1:8000/ contains frontend and http://127.0.0.1:8000/docs contain SwaggerUI(a flexible UI created by FastAPI only)
