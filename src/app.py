@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request, Response, status
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, HTMLResponse
 from pydantic import BaseModel, Field
 
 # Import recruitment agent, RAG core, and PII masking guardrail
@@ -27,9 +27,7 @@ LOGS_DIR = BASE_DIR / "logs"
 LOG_FILE = LOGS_DIR / "app_traces.jsonl"
 
 
-# ============================================================================
 # 1. Pydantic Request & Response Schemas
-# ============================================================================
 
 class AskRequest(BaseModel):
     """Incoming request model for /ask endpoint."""
@@ -96,10 +94,7 @@ class HealthResponse(BaseModel):
     agent_ready: bool = Field(default=True)
     timestamp: str = Field(...)
 
-
-# ============================================================================
 # 2. Structured JSON-Lines Logger with PII Masking Guardrail
-# ============================================================================
 
 def log_trace_jsonl(
     trace_id: str,
@@ -137,10 +132,7 @@ def log_trace_jsonl(
     except Exception as e:
         print(f"Logging error: Failed to append trace {trace_id} to JSONL log: {e}")
 
-
-# ============================================================================
 # 3. FastAPI Application Initialization
-# ============================================================================
 
 # Global agent instance placeholder
 agent_instance: Optional[RecruitmentAgent] = None
@@ -165,15 +157,6 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Enable CORS for frontend or external client integrations
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 def get_agent() -> RecruitmentAgent:
     """Retrieves or lazy-initializes the recruitment agent."""
@@ -182,12 +165,19 @@ def get_agent() -> RecruitmentAgent:
         agent_instance = RecruitmentAgent()
     return agent_instance
 
-
-# ============================================================================
 # 4. API Endpoints
-# ============================================================================
 
-@app.get("/", response_model=HealthResponse)
+@app.get("/", response_class=FileResponse)
+def read_root_ui():
+    """Serves the frontend chat UI from the separate frontend folder."""
+    frontend_path = BASE_DIR / "frontend" / "index.html"
+    if frontend_path.exists():
+        return str(frontend_path)
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND, 
+        detail=f"Frontend index.html not found at {frontend_path}"
+    )
+
 @app.get("/health", response_model=HealthResponse)
 def health_check():
     """Returns the operational readiness and health status of the recruitment agent backend."""
@@ -362,10 +352,7 @@ def add_document(payload: AddDocumentRequest):
             detail=f"Failed to save and index document: {str(e)}"
         )
 
-
-# ============================================================================
 # 5. Automated Verification & Testing Suite
-# ============================================================================
 
 def run_app_verification():
     """Runs automated verification of FastAPI endpoints and JSONL logging."""
@@ -478,7 +465,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--test":
         run_app_verification()
     else:
-        # If run directly without flags, execute test verification then launch server
         run_app_verification()
         print("\nStarting Uvicorn Server on http://127.0.0.1:8000 ...")
         uvicorn.run("src.app:app", host="127.0.0.1", port=8000, reload=False)
