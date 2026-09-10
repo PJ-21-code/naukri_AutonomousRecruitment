@@ -131,7 +131,7 @@ class RAG_CORE:
             }
             
         context_text = " ".join(documents)
-        answer = f"Based on Naukri.com policies: {context_text[:300]}..."
+        answer = f"Based on Naukri.com policies: {context_text}"
         
         return {
             "answer": answer,
